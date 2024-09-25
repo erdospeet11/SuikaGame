@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3nufjl3d833x"]
+
+[ext_resource type="Texture2D" uid="uid://b884n0mqmeu84" path="res://circle_white.png" id="1_upvde"]
+[ext_resource type="Script" path="res://blue.gd" id="1_ux3kj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vrmoj"]
+friction = 0.25
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_461jc"]
+radius = 17.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+modulate = Color(0.262745, 1, 1, 1)
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_vrmoj")
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_ux3kj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_461jc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_upvde")

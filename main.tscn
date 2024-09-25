@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://m76vv0plgorx"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ggrty"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjowf"]
+size = Vector2(877, 31.5)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_erd4r"]
+size = Vector2(860, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlx6n"]
+size = Vector2(38.75, 479)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3dtfx"]
+size = Vector2(80, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ianf5"]
+size = Vector2(38.75, 472)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vvu6c"]
+size = Vector2(85, 470)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ggrty")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(581, 631)
+shape = SubResource("RectangleShape2D_bjowf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D"]
+position = Vector2(-7.15256e-07, -0.249977)
+scale = Vector2(1.0186, 0.387501)
+texture = SubResource("PlaceholderTexture2D_erd4r")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(162, 376)
+shape = SubResource("RectangleShape2D_hlx6n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D2"]
+position = Vector2(-4.76837e-06, 1.00002)
+scale = Vector2(0.475, 479)
+texture = SubResource("PlaceholderTexture2D_3dtfx")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1000, 379)
+shape = SubResource("RectangleShape2D_ianf5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D3"]
+position = Vector2(-0.500047, 1)
+scale = Vector2(0.458823, 1.00426)
+texture = SubResource("PlaceholderTexture2D_vvu6c")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://con4fcmq6wvwt"]
+
+[ext_resource type="Script" path="res://red.gd" id="1_6r3wu"]
+[ext_resource type="Texture2D" uid="uid://b884n0mqmeu84" path="res://circle_white.png" id="1_alipm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t2kns"]
+friction = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nhpon"]
+radius = 34.0
+
+[node name="Red" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_t2kns")
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_6r3wu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nhpon")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.768627, 0, 0, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("1_alipm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
