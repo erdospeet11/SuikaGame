@@ -28,5 +28,6 @@ func instantiate_random_scene():
 		var scene_instance = packed_scenes[random_index].instantiate()
 		add_child(scene_instance)
 		# Optionally set the position of the instance to where the mouse clicked
-		scene_instance.position = get_global_mouse_position()
+		var pposition = get_global_mouse_position()
+		scene_instance.position = Vector2(pposition.x, 45)
 		print("Instantiated scene: ", random_index)
