@@ -2,6 +2,9 @@ extends Node2D
 
 # Declare an array to hold the PackedScenes
 var packed_scenes : Array
+var not_spawned : bool 
+
+@onready var boss_scene = preload("res://boss.tscn")
 
 # Called when the node enters the scene tree for the first time
 func _ready():
@@ -18,6 +21,9 @@ func _ready():
 	Global.score_label = $CanvasLayer/Score
 
 func _physics_process(delta: float) -> void:
+	if Global.score_label.value >= 500 and not_spawned == false:
+		boss_scene.instantiate()
+	
 	if Input.is_action_just_pressed("place"):
 		instantiate_random_scene()
 
